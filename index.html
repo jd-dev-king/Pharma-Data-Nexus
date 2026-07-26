@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pharma Data Nexus</title>
+  <link rel="stylesheet" href="./style.css">
+  <script
+    type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.185.1/examples/jsm/"}}</script>
+</head>
+
+<body>
+  <canvas id="c"></canvas>
+  <div class="hud">
+    <header>
+      <div><small>EES PORTFOLIO UNIVERSE BY JDL / DATA SYSTEMS</small>
+        <h1>Pharma Data Nexus</h1>
+      </div><b><i></i> Enterprise systems online</b>
+    </header>
+    <nav><span>SYSTEM DIRECTORY</span><button data-id="overview" class="active">01 Command Core</button><button
+        data-id="mes">02 MES Production</button><button data-id="lims">03 LIMS Quality</button><button data-id="qms">04
+        QMS Compliance</button><button data-id="cmms">05 CMMS Equipment</button><button data-id="audit">06 ALCOA+
+        Audit</button></nav>
+    <section id="panel"><button id="close">×</button><small id="kicker"></small>
+      <h2 id="title"></h2>
+      <p id="copy"></p>
+      <div id="metrics"></div>
+      <div id="lines"></div>
+      <div class="actions"><button type="button" data-open-modal="architecture">View Architecture</button><button
+          type="button" data-open-modal="project">Project Details</button><button type="button"
+          data-open-modal="database">Tables &amp; SQL</button></div>
+    </section>
+    <footer>
+      <div><span>DATA STREAM</span><strong id="rate">2.8K rec/s</strong></div>
+      <div><span>ACTIVE TABLES</span><strong>38</strong></div>
+      <div><span>CONTROL MODE</span><strong>ALCOA+</strong></div>
+      <div><span>SCENE</span><strong id="scene">COMMAND CORE</strong></div>
+    </footer>
+    <div id="detail-modal" class="detail-modal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal></div>
+      <article class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" data-close-modal aria-label="Close details">×</button>
+        <div id="modal-content"></div>
+      </article>
+    </div>
+    <p class="tip">Drag to orbit • Scroll to zoom • Select a hologram</p>
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+
+</html>
