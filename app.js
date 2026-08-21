@@ -91,9 +91,19 @@ let liveDatabaseState = {
 
 function findLiveTable(...patterns) {
   if (!liveDatabaseState.connected) return null;
-  return liveDatabaseState.tables.find(table =>
-    patterns.some(pattern => pattern.test(table.name))
-  ) || null;
+
+  // Respect pattern priority.
+  // Example: /^batches?$/ must be checked across every table
+  // before falling back to the broader /batch/i pattern.
+  for (const pattern of patterns) {
+    const match = liveDatabaseState.tables.find(table =>
+      pattern.test(table.name)
+    );
+
+    if (match) return match;
+  }
+
+  return null;
 }
 
 function liveCount(...patterns) {
